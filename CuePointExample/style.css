@@ -1,0 +1,44 @@
+body				{font: 14px "Trebuchet MS", "Bitstream Vera Sans", Verdana, Helvetica, sans-serif; }
+h1					{margin:0;padding:0;margin-top:5px;}
+h2					{margin:0;padding:0;}
+h3					{margin:0;padding:0;color:#7D053F;margin-top:5px;}
+p					{padding:0;margin:0;margin-top:4px;}
+.tableholder		{float:left;}
+table				{font-size: 12px; border-collapse: separate; border-spacing: 0; margin: 0 0 1em 0; color:#000;}
+
+a 					{color: #09c; text-decoration: none; border-bottom: none;}
+a:visited 			{color: #09c; font-weight: normal;}
+a:hover 			{border-bottom: 1px dotted;}
+
+thead th,
+thead td			{font-weight: bold; line-height:normal; text-align: left; border-bottom: 0.4em solid #09f;}
+
+tfoot th,
+tfoot td			{text-align: left; border-top: 0.4em solid #09f; font-weight: bold}
+
+th,
+td 					{padding: 0.25em;padding-right:0.6em;}
+
+tbody th,
+td					{text-align: left; vertical-align: top;}
+tbody th			{font-weight: normal; white-space: nowrap;}
+
+tbody th a:link,
+tbody th a:visited 	{font-weight: bold;}
+
+tbody th + td		{white-space: nowrap;}
+
+tbody td,
+tbody th 			{border: 1px solid #fff; border-width: 1px 0;}
+
+tbody tr.odd th,
+tbody tr.odd td 	{border-color: #deded8; background: #f9f9fb;}
+
+tbody tr:hover td,
+tbody tr:hover th 	{background: #fbfbf8;}
+
+caption, strong 	{font-weight: bold; font-size: 14px; text-align: left; margin: 0; padding: 0.5em 0.25em;}
+
+ul { padding: 0; margin: 0; } 
+ul li { background: url(playbtn.jpg) 0px 3px no-repeat; list-style: none; list-style-position: outside; padding-left: 25px; }
+ul li a.selected { background-color: magenta; font-weight: bold; color: white; }

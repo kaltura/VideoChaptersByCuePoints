@@ -1,0 +1,10 @@
+RewriteEngine ON
+
+#RewriteLog "/mylogfile.log" 
+#RewriteLogLevel 3
+
+RewriteRule ^social-enterprise/(.+)$ social-enterprise/$1/ [NC]
+RewriteRule ^social-enterprise/(.+)/$ index.php?chapter=$1 [NC]
+
+#RewriteRule ^Example/(.+)$ /$1/ [NC, NE]
+#RewriteRule ^Example/(.+)/$ index.php?chapter=$1 [NC, NE]
