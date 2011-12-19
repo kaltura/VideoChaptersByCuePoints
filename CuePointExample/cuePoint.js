@@ -57,7 +57,7 @@
 	var jsCallbackReady = function( playerId ) {
 		KalturaChaptersSample.myPlayer = document.getElementById(playerId);
 		KalturaChaptersSample.myPlayer.addJsListener("playerPlayed", "KalturaChaptersSample.playerPlaying");
-		KalturaChaptersSample.myPlayer.addJsListener("cuePointReached", "cuePointHandler");
+		KalturaChaptersSample.myPlayer.addJsListener("cuePointReached", "KalturaChaptersSample.cuePointHandler");
 		KalturaChaptersSample.myPlayer.addJsListener("mediaReady", "KalturaChaptersSample.doFirstPlay");
 		
 		//myPlayer.addJsListener("adOpportunity", "cuePointHandler"); used for Ad Cue Points
