@@ -1,0 +1,10 @@
+VideoChaptersByCuePoints
+==================
+How to increase video SEO by leveraging in-video chapters driven by cue-points using Kaltura
+------------------
+
+This example code shows a method of using the Kaltura code cue-points functionality together with the Kaltura Media Player and some PHP-JS-APACHE code to create an in-video chapters navigation that provides SEO value to single video landing-pages.
+
+Check the code, fork, let us know what you did at http://blog.kaltura.org
+
+Licensed under AGPL.
