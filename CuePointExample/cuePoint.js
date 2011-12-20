@@ -49,28 +49,53 @@
 		},
   
 		cuePointHandler : function( qPoint ) {
-			this.switchActiveCue('cp'+qPoint.cuePoint.id);
+			if(this.firstLoad == false)
+			{
+				var cuePoint = $('#cp'+qPoint.cuePoint.id);
+				
+				console.log(cuePoint);
+				this.changePageData(cuePoint);
+			}
 		 },				
+	
+		//Changes all the data on the page - selecting the chapter, changing the content and the URL
+		changePageData : function(cuePoint){
+			var chapterName = cuePoint.attr("data-chapterName");
+			
+			$('#ctitle').text(cuePoint.attr("data-chapterTitle"));
+			$('#cimage').attr("src", cuePoint.attr("data-chapterThumb"));
+			$('#ctags').text("Chapter Tags: " + cuePoint.attr("data-chapterTags"));
+			this.switchActiveCue(cuePoint.attr("id"));
+						
+			//Change the URL without refreshing the page
+			window.history.pushState("CuePointClicked", "CuePointClicked", chapterName);
+		},
 	}
-
-	// Bind to cuePointReached event
+	
+	// Create a more standard code convention 
+	// Change to use stnadard function jsCallbackReady() {...
+	
+	// called by the KDP once it is ready to interact with javascript on the page:
 	var jsCallbackReady = function( playerId ) {
-		KalturaChaptersSample.myPlayer = document.getElementById(playerId);
-		KalturaChaptersSample.myPlayer.addJsListener("playerPlayed", "KalturaChaptersSample.playerPlaying");
-		KalturaChaptersSample.myPlayer.addJsListener("cuePointReached", "KalturaChaptersSample.cuePointHandler");
-		KalturaChaptersSample.myPlayer.addJsListener("mediaReady", "KalturaChaptersSample.doFirstPlay");
+		var player = document.getElementById(playerId);
+		player.addJsListener("playerPlayed", "KalturaChaptersSample.playerPlaying");
+		player.addJsListener("cuePointReached", "KalturaChaptersSample.cuePointHandler");
+		player.addJsListener("mediaReady", "KalturaChaptersSample.doFirstPlay");
+		
+		// Cache a reference to kaltura player in a variable within my scope (my object)
+		KalturaChaptersSample.myPlayer = player;
 		
 		//myPlayer.addJsListener("adOpportunity", "cuePointHandler"); used for Ad Cue Points
 	};
 	
 	$('#chapters a').click(function(e) {
-		var chapterName = $(e.target).attr("data-chapterName");
-		$('#ctitle').text($(e.target).attr("data-chapterTitle"));
-		$('#cimage').attr("src", $(e.target).attr("data-chapterThumb"));
-		$('#ctags').text("Chapter Tags: " + $(e.target).attr("data-chapterTags"));
-		KalturaChaptersSample.jumpToTime($(e.target).attr("data-chapterStartTime"));
-		KalturaChaptersSample.switchActiveCue($(e.target).attr("id"));
-		window.history.pushState("CuePointClicked", "CuePointClicked", chapterName);
+		var chapter = $(e.target);
+
+		//Change the page and skip to the chapter
+		KalturaChaptersSample.changePageData(chapter);
+		KalturaChaptersSample.jumpToTime(chapter.attr("data-chapterStartTime"));
+				
+		//Prevent redirect on the page
 		e.preventDefault();
 		return false;
 	});
