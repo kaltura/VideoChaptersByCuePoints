@@ -3,9 +3,9 @@
 //Configuration for script
 
 $entryId = '1_2v0u9xr2'; // Change to your entry ID
-$partnerId = 309; // Change to your partner ID
-$email = 'zohar.babin@kaltura.com';  //Add your KMC login Email
-$password = '123ewqasdcxz!';  //Add your kmc login password
+$partnerId = 000; // Change to your partner ID
+$email = 'yourname@company.com';  //Add your KMC login Email
+$password = 'password!';  //Add your kmc login password
 $baseURL = "/RoniC/CuePointExample/"; //Change to the base url of your entry
 $uiConfId = '6211452'; // Add your UI conf ID here
 
