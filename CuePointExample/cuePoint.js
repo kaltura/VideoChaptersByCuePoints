@@ -69,11 +69,17 @@
 						
 			//Change the URL without refreshing the page
 			window.history.pushState("CuePointClicked", "CuePointClicked", chapterName);
+			
+			try
+			{
+				window.history.pushState("CuePointClicked", "CuePointClicked", chapterName);
+			}
+			catch(err)
+			{
+				
+			}
 		}
 	}
-	
-	// Create a more standard code convention 
-	// Change to use stnadard function jsCallbackReady() {...
 	
 	// called by the KDP once it is ready to interact with javascript on the page:
 	var jsCallbackReady = function( playerId ) {
@@ -96,6 +102,8 @@
 		KalturaChaptersSample.jumpToTime(chapter.attr("data-chapterStartTime"));
 				
 		//Prevent redirect on the page
-		e.preventDefault();
+		if(e.preventDefault) e.preventDefault();
+		e.returnValue = false; //Fix for IE
+		
 		return false;
 	});
