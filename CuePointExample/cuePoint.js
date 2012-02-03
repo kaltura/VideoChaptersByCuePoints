@@ -69,7 +69,7 @@
 						
 			//Change the URL without refreshing the page
 			window.history.pushState("CuePointClicked", "CuePointClicked", chapterName);
-		},
+		}
 	}
 	
 	// Create a more standard code convention 
